@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +32,8 @@ public class MainFragment extends Fragment {
 
     private static RepositoryImpl repository = new RepositoryImpl();
     private List<Article> articles;
-    private static Retrofit retrofit;
     private TextView title;
+    private RecyclerView recyclerView;
 
 
     public static MainFragment newInstance() {
