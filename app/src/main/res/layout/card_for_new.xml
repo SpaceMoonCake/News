@@ -5,27 +5,31 @@
     android:id="@+id/card_for_new"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="5dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/amita"
+            android:fontFamily="serif"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="@tools:sample/full_names" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_new"
             android:layout_width="match_parent"
+            android:padding="5dp"
             android:layout_height="200dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -34,9 +38,10 @@
 
         <TextView
             android:id="@+id/description"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/amita"
+            android:fontFamily="serif"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -45,17 +50,19 @@
         <TextView
             android:id="@+id/author"
             android:layout_width="match_parent"
+            android:padding="5dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/amita"
-            android:textSize="16sp"
+            android:fontFamily="serif"
+            android:textSize="10sp"
             tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/date"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:fontFamily="@font/amita"
+            android:textSize="10sp"
+            android:fontFamily="serif"
             tools:text="@tools:sample/date/ddmmyy" />
 
 

@@ -1,5 +1,7 @@
 package com.spacemooncake.news.model.entities;
 
+import java.time.LocalDateTime;
+
 public class Article {
     private String author;
     private String title;

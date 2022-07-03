@@ -1,6 +1,6 @@
 package com.spacemooncake.news.view.adapters;
 
-import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.spacemooncake.news.R;
 import com.spacemooncake.news.model.entities.Article;
 
-import java.io.IOException;
-import java.net.URL;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemViewHolder> {
@@ -61,13 +62,28 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemViewHolder> 
         }
 
 
+
         public void bind(Article article) {
-//            URL urlImage = new URL(article.getUrlToImage());
-//            imageNew.setImageBitmap(BitmapFactory.decodeStream(urlImage.openConnection() .getInputStream()));
+            Glide.with(itemView.getContext()).load(article.getUrlToImage()).into(imageNew);
             title.setText(article.getTitle());
             description.setText(article.getDescription());
-            date.setText(article.getPublishedAt());
-            author.setText(article.getAuthor());
+            date.setText(getFormattedDateTime(article.getPublishedAt()));
+            if (article.getAuthor() != null){
+                author.setText(article.getAuthor());
+            }else {
+                author.setVisibility(View.GONE);
+            }
         }
+
+        private String getFormattedDateTime(String date) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                return ZonedDateTime.parse(date)
+                        .format(DateTimeFormatter.ofPattern("dd LLL HH:mm"));
+            }
+            return null;
+        }
+
+
+
     }
 }
