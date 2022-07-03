@@ -20,7 +20,7 @@ import java.util.List;
 
 public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemViewHolder> {
 
-    private List<Article> articles;
+    private final List<Article> articles;
 
     public NewAdapter(List<Article> articles) {
         this.articles = articles;

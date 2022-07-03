@@ -1,11 +1,6 @@
 package com.spacemooncake.news.model;
 
-import androidx.annotation.NonNull;
-
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.util.Calendar;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

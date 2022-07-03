@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_margin_card_view">10dp</dimen>
+    <dimen name="coroner_rad_card_view">10dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
+    <dimen name="padding_layout">5dp</dimen>
+    <dimen name="padding_title">5dp</dimen>
+    <dimen name="size_title_text">20sp</dimen>
+    <dimen name="padding_image">5dp</dimen>
+    <dimen name="height_image">200dp</dimen>
+    <dimen name="padding_description">5dp</dimen>
+    <dimen name="size_description_text">16sp</dimen>
+    <dimen name="padding_author">5dp</dimen>
+    <dimen name="size_author_text">11sp</dimen>
+    <dimen name="padding_date">5dp</dimen>
+    <dimen name="size_date_text">11sp</dimen>
+</resources>

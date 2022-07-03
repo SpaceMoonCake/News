@@ -10,7 +10,7 @@ public class Article {
     private String urlToImage;
     private String publishedAt;
     private Source source;
-
+    private String content;
 
     public Source getSource() {
         return source;
@@ -19,8 +19,6 @@ public class Article {
     public void setSource(Source source) {
         this.source = source;
     }
-
-
 
     public void setAuthor(String author) {
         this.author = author;
@@ -51,7 +49,6 @@ public class Article {
     }
 
 
-
     public String getAuthor() {
         return author;
     }
@@ -79,11 +76,6 @@ public class Article {
     public String getContent() {
         return content;
     }
-
-    private String content;
-
-
-
 
 
 }

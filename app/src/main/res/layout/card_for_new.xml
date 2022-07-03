@@ -5,63 +5,61 @@
     android:id="@+id/card_for_new"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="5dp">
+    android:layout_margin="@dimen/layout_margin_card_view"
+    app:cardCornerRadius="@dimen/coroner_rad_card_view"
+    app:cardElevation="@dimen/card_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
+        android:padding="@dimen/padding_layout"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
-            android:padding="5dp"
+            android:padding="@dimen/padding_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/size_title_text"
             android:textStyle="bold"
             tools:text="@tools:sample/full_names" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_new"
             android:layout_width="match_parent"
-            android:padding="5dp"
-            android:layout_height="200dp"
-            android:layout_weight="1"
+            android:padding="@dimen/padding_image"
+            android:layout_height="@dimen/height_image"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
             tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/description"
-            android:padding="5dp"
+            android:padding="@dimen/padding_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="@dimen/size_description_text"
             tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/author"
             android:layout_width="match_parent"
-            android:padding="5dp"
+            android:padding="@dimen/padding_author"
             android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:textSize="10sp"
+            android:textSize="@dimen/size_author_text"
             tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/date"
-            android:padding="5dp"
+            android:padding="@dimen/padding_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="@dimen/size_date_text"
             android:fontFamily="serif"
             tools:text="@tools:sample/date/ddmmyy" />
 

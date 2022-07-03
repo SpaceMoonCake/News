@@ -1,6 +1,5 @@
 package com.spacemooncake.news.view;
 
-import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
@@ -13,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.spacemooncake.news.R;
 import com.spacemooncake.news.model.RepositoryImpl;
@@ -22,20 +19,16 @@ import com.spacemooncake.news.model.entities.Article;
 import com.spacemooncake.news.model.entities.NewsResponseData;
 import com.spacemooncake.news.view.adapters.NewAdapter;
 
-import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainFragment extends Fragment {
 
-    private static RepositoryImpl repository = new RepositoryImpl();
+    private static final RepositoryImpl repository = new RepositoryImpl();
     private List<Article> articles;
-    private TextView title;
-    private RecyclerView recyclerView;
 
 
     public static MainFragment newInstance() {
@@ -60,21 +53,23 @@ public class MainFragment extends Fragment {
     void sendRequest() {
         repository.getNewsAPI().getNews().enqueue(new Callback<NewsResponseData>() {
             @Override
-            public void onResponse(Call<NewsResponseData> call, Response<NewsResponseData> response) {
-                NewsResponseData newsResponseData = response.body();
-                articles = newsResponseData.getArticles();
-                bind();
+            public void onResponse(@NonNull Call<NewsResponseData> call, @NonNull Response<NewsResponseData> response) {
+                if (response.isSuccessful()){
+                    NewsResponseData newsResponseData = response.body();
+                    articles = newsResponseData != null ? newsResponseData.getArticles() : null;
+                    bind();
+                }
             }
 
             @Override
-            public void onFailure(Call<NewsResponseData> call, Throwable t) {
+            public void onFailure(@NonNull Call<NewsResponseData> call, @NonNull Throwable t) {
 
             }
         });
     }
 
     void bind() {
-        recyclerView = getView().findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = getView().findViewById(R.id.recyclerView);
         NewAdapter adapter = new NewAdapter(articles);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
