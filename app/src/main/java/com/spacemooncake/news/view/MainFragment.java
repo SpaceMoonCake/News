@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.spacemooncake.news.R;
 import com.spacemooncake.news.model.RepositoryImpl;
 import com.spacemooncake.news.model.entities.Article;
 import com.spacemooncake.news.model.entities.NewsResponseData;
+import com.spacemooncake.news.view.adapters.NewAdapter;
 
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
@@ -53,8 +55,6 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         sendRequest();
-        bind();
-
     }
 
     void sendRequest() {
@@ -63,7 +63,7 @@ public class MainFragment extends Fragment {
             public void onResponse(Call<NewsResponseData> call, Response<NewsResponseData> response) {
                 NewsResponseData newsResponseData = response.body();
                 articles = newsResponseData.getArticles();
-                title.setText(articles.get(0).getTitle());
+                bind();
             }
 
             @Override
@@ -74,7 +74,10 @@ public class MainFragment extends Fragment {
     }
 
     void bind() {
-        title = getView().findViewById(R.id.message);
+        recyclerView = getView().findViewById(R.id.recyclerView);
+        NewAdapter adapter = new NewAdapter(articles);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
 

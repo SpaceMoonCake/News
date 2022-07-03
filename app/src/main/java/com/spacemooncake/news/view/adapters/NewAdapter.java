@@ -35,11 +35,7 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        try {
             holder.bind(articles.get(position));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 }
 
     @Override
@@ -49,11 +45,11 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemViewHolder> 
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title;
-        private TextView description;
-        private ImageView imageNew;
-        private TextView author;
-        private TextView date;
+        private final TextView title;
+        private final TextView description;
+        private final ImageView imageNew;
+        private final TextView author;
+        private final TextView date;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,9 +61,9 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ItemViewHolder> 
         }
 
 
-        public void bind(Article article) throws IOException {
-            URL urlImage = new URL(article.getUrlToImage());
-            imageNew.setImageBitmap(BitmapFactory.decodeStream(urlImage.openConnection() .getInputStream()));
+        public void bind(Article article) {
+//            URL urlImage = new URL(article.getUrlToImage());
+//            imageNew.setImageBitmap(BitmapFactory.decodeStream(urlImage.openConnection() .getInputStream()));
             title.setText(article.getTitle());
             description.setText(article.getDescription());
             date.setText(article.getPublishedAt());
